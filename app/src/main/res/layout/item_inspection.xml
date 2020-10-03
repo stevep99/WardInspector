@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable name="inspectionWithAnswers" type="demo.wardinspector.model.InspectionWithAnswerInfo" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="20dp">
+
+        <TextView
+            android:id="@+id/inspectionTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@{inspectionWithAnswers.inspection.name}"
+            android:textSize="20sp"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/inspectionAnswers"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{inspectionWithAnswers.answerCount + ` answers`}"
+                android:textSize="16sp"/>
+
+            <TextView
+                android:id="@+id/inspectionScore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{`Score: ` + inspectionWithAnswers.totalScore}"
+                android:textSize="16sp"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/inspectionComplete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="@{inspectionWithAnswers.inspection.complete ? `☑` : `☐`}"/>
+
+    </LinearLayout>
+</layout>

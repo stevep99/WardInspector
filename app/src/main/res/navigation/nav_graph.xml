@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/InspectionsFragment">
+
+    <fragment
+        android:id="@+id/InspectionsFragment"
+        android:name="demo.wardinspector.fragment.InspectionsFragment"
+        android:label="@string/first_fragment_label"
+        tools:layout="@layout/fragment_inspections">
+
+        <action
+            android:id="@+id/action_InspectionsFragment_to_QuestionsFragmentFragment"
+            app:destination="@id/QuestionsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/QuestionsFragment"
+        android:name="demo.wardinspector.fragment.QuestionsFragment"
+        android:label="@string/second_fragment_label"
+        tools:layout="@layout/fragment_questions">
+        <argument android:name="inspectionId"/>
+
+        <action
+            android:id="@+id/action_QuestionsFragment_to_InspectionsFragment"
+            app:destination="@id/InspectionsFragment" />
+    </fragment>
+</navigation>
